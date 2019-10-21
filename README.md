@@ -1,5 +1,5 @@
 # Algorithms Specialization
-![screenshot of sample](https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/21/54dd30f05e11e59bf9d905b70dcbd9/cs161logo2.png)
+![screenshot of sample](https://lagunita.stanford.edu/asset-v1:Engineering+Algorithms1+SelfPaced+type@asset+block@algs.jpg)
 This repository contains materials and solutions for [Algorithms Specialization](https://www.coursera.org/specializations/algorithms), created by Stanford University.
 *** 
 **Please make homeworks by your own and look in this repository only when you've already done the assignments. Anyway, it is in your interests if you really want to learn something**.
