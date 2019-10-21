@@ -1,0 +1,47 @@
+import random, copy
+
+
+def chooseRandomEdge(g):  # return an edge represented by 2 ints
+    v1 = list(g.keys())[random.randint(0, len(g) - 1)]
+    v2 = g[v1][random.randint(0, len(g[v1]) - 1)]
+    return v1, v2
+
+
+def contraction(g):
+    v1, v2 = chooseRandomEdge(g)
+    # 1. attach v2's list to v1
+    g[v1].extend(g[v2])
+    # 2. replace all appearance of v2 as v1
+    for x in g[v2]:
+        lst = g[x]
+        for i in range(0, len(lst)):
+            if lst[i] == v2: lst[i] = v1
+    # 3.remove self-loop
+    while v1 in g[v1]:
+        g[v1].remove(v1)
+    # 4. remove v2's list
+    del g[v2]
+
+
+def kargerMinCut(g):
+    while len(g) > 2:
+        contraction(g)
+    return len(g[list(g.keys())[0]])
+
+
+g = {}
+# with open('sample.txt') as f:
+with open('kargerMinCut.txt') as f:
+    for l in f:
+        items = list(map(int, l.split()))
+        g[items[0]] = items[1:len(items)]
+
+min = kargerMinCut(copy.deepcopy(g))
+# run many tests:
+for i in range(0, 15):
+    instance = kargerMinCut(copy.deepcopy(g))
+    if instance < min:
+        min = instance
+print(("min cut = {}").format(min))
+
+# assignment 4: the right answer is 17
